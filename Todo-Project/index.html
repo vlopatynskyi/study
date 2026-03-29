@@ -8,81 +8,20 @@
 </head>
 <body>
 
-    <table border="1">
-        <caption>Receipt</caption>
-        
-        <thead>
-            <tr>
-                <th rowspan="2">Service type</th>
-                <th rowspan="2">type</th>
-                <th colspan="2">volume of service</th>
-                <th rowspan="2">price</th>
-            </tr>
-            <tr>
-                <th>individual</th>
-                <th>for public</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>Water</td>
-                <td>cubic meter</td>
-                <td>3</td>
-                <td>4</td>
-                <td>1000</td>
-            </tr>
-        </tbody>
-
-        <tfoot>
-            <td>Total price</td>
-            <td colspan="4">9999.00</td>
-        </tfoot>
-    </table>
-
-
-    <form>
-        <fieldset>
-            <legend>Private information</legend>
-
-            <label for="name">Name:</label>
-            <input type="text" name="user-name" id="name" required>
-
-            <label for="age">Age:</label>
-            <input type="number" name="user-age" id="age" placeholder="0" required>
-
-            <label for="city">Chose your city</label>
-            <select name="user-city" id="city" required>
-                <option value="" disabled selected>...</option>
-                <option value="kiyv">Kyiv</option>
-                <option value="khmelnytskyi">Khmelnytskyi</option>
-            </select>
-        </fieldset>
-        <fieldset>
-            <legend>Way to contact</legend>
-
-            <label for="email">Email:</label>
-            <input type="email" name="user-email" id="email">
-        </fieldset>
-        <fieldset>
-            <legend>Account Information</legend>
-
-            <label for="login">Login:</label>
-            <input type="text" name="user-login" id="login" required>
-            
-            <label for="password">Password</label>
-            <input type="password" name="user-password" id="password" required>
-        </fieldset>
-        <p>
-            <button type="submit">Submit</button>
-        </p>
+    <form id="add-form">
+        <input type="text" id="input-todo-task" placeholder="Add new task">
+        <button id="add-btn" type="submit">Add</button>
     </form>
 
-
-
-
-
+    <ol id="todo-list"></ol>
+<form id="complete-form">
     
+        <label for="complete-task">Type number of your task</label>
+        <input type="number" name="complete-task" id="complete-task-input"  min="0" >
+         
+        <button id="complete-btn" type="submit">Complete Task</button>
+</form>
     <script src="main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

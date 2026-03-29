@@ -83,10 +83,5 @@ const todo = {
 };
 
 
-todo.add('JavaScript lessons').add('Programming').add('Polish')
-todo.complete(3);
-
-console.log( todo.filter("completed") );
-
 
 
