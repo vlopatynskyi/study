@@ -3,7 +3,8 @@ const button = document.getElementById('add-btn');
 const list = document.getElementById('todo-list');
 const form = document.getElementById('add-form');
 const inputId = document.getElementById('complete-task-input');
-const completeForm = document.getElementById('complete-form')
+const completeForm = document.getElementById('complete-form');
+const clearBtn = document.getElementById("clear-completed-btn");
 
 function render() {
     list.innerHTML = '';
@@ -39,3 +40,9 @@ completeForm.addEventListener('submit', function(event) {
     
 });
 
+clearBtn.addEventListener('click', function() {
+
+    todo.clearCompleted();
+    render();
+    
+})
