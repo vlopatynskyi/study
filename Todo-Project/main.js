@@ -41,11 +41,13 @@ const todo = {
         return this;
     },
 
+    //This method stands for console using this app
     show() {
         this.tasks.forEach((item) => console.log(item));
         return this;
     },
 
+    //This method stands for console using this app
     toggle(id) {
         const task = this.tasks.find(task => task.id === id);
         if( task ){

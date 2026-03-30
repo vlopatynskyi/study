@@ -2,17 +2,27 @@ const input = document.getElementById("input-todo-task");
 const button = document.getElementById('add-btn');
 const list = document.getElementById('todo-list');
 const form = document.getElementById('add-form');
-const inputId = document.getElementById('complete-task-input');
+const inputIdComplete = document.getElementById('complete-task-input');
 const completeForm = document.getElementById('complete-form');
 const clearBtn = document.getElementById("clear-completed-btn");
+const filterForm = document.getElementById('filter-form');
+const removeForm = document.getElementById('remove-form');
+const inputIdToRemove = document.getElementById('remove-task-input')
 
-function render() {
+
+
+function getFilter() {
+    return  filtered = document.querySelector('input[name = "filter"]:checked').value;
+}
+
+function render(tasks) {
     list.innerHTML = '';
 
-    todo.tasks.forEach(item => {
+    tasks.forEach(item => {
         const li = document.createElement('li');
 
         li.textContent = `Task: ${item.text} Status: ${item.completed ? '✅' : '❌'}`;
+
         list.appendChild(li);
     });
 }
@@ -23,19 +33,19 @@ form.addEventListener('submit', function(event) {
     todo.add(input.value);
     input.value = '';
 
-    render();
+    render( todo.filter(getFilter()) );
 
 });
 
 completeForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    if(!(inputId.value <= 0 || inputId.value > todo.tasks.length)) {
+    if(inputIdComplete.value > 0 && inputIdComplete.value <= todo.tasks.length) {
     
-        todo.complete(+inputId.value);
+        todo.complete(+inputIdComplete.value);
 
-    inputId.value = '';
-    render();
+    inputIdComplete.value = '';
+    render( todo.filter(getFilter()) );
     };
     
 });
@@ -43,6 +53,35 @@ completeForm.addEventListener('submit', function(event) {
 clearBtn.addEventListener('click', function() {
 
     todo.clearCompleted();
-    render();
+    render( todo.filter(getFilter()) );
+
+});
+
+filterForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    render( todo.filter(getFilter()) );
     
+});
+
+removeForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if(inputIdToRemove.value > 0 && inputIdToRemove.value <= todo.tasks.length) {
+    
+        todo.remove(+inputIdToRemove.value);
+
+    inputIdToRemove.value = '';
+    render( todo.filter(getFilter()) );
+    };
 })
+
+
+
+
+
+
+
+
+
+

@@ -13,17 +13,44 @@
         <button id="add-btn" type="submit">Add</button>
     </form>
 
+     <form id="filter-form">
+        <label for="all">
+        <input type="radio" name="filter" value="all" checked>
+        All
+        </label> 
+
+        <label for="active">
+        <input type="radio" name="filter" value="active">
+        Active
+        </label>
+
+        <label for="completed">
+        <input type="radio" name="filter" value="completed">
+        Completed
+        </label>
+
+        <button id="filter-btn">Activate filter</button>
+    </form>
+
     <ol id="todo-list"></ol>
+
 <form id="complete-form">
     
         <label for="complete-task">Type number of your task</label>
-        <input type="number" name="complete-task" id="complete-task-input"  min="0" >
+        <input type="number" name="complete-task" id="complete-task-input" placeholder="1" min="0" >
          
         <button id="complete-btn" type="submit">Complete Task</button>
 </form>
 
-<button id="clear-completed-btn">Clear Completed</button>
+<form id="remove-form">
+    
+        <label for="remove-task">Type number of task you need to remove</label>
+        <input type="number" name="remove-task" id="remove-task-input" placeholder="1" min="0" >
+         
+        <button id="remove-btn" type="submit">Remove Task</button>
+</form>
 
+<button id="clear-completed-btn">Clear Completed</button>
     <script src="main.js"></script>
     <script src="app.js"></script>
 </body>
